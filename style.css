@@ -1,0 +1,51 @@
+html {
+	background: url(https://images-na.ssl-images-amazon.com/images/I/71OznYJDD7L._AC_SX679_.jpg) no-repeat center center;
+	background-size: 110vh;
+	height: 100vh;
+}
+
+@media only screen and (max-width: 850px) {
+	html {
+		background-size: 100vw;
+		width: 100vw;
+	}
+}
+
+.container {
+	display: grid;
+	height: 40vh;
+	width: 30.5vw;
+	position: absolute;
+	margin: 0;
+	top: 28.8%;
+	left: 34.8%;
+}
+
+.hovered {
+	background: rgba(0,0,0,0.4);
+}
+
+button {
+	border: none;
+	border-radius: 12px;
+	background: rgba(0,0,0,0.5);
+	text-align: center;
+	display: inline-block;
+	margin: 4px 10px;
+	padding: 20px;
+	transition-duration: 0.5s;
+	font-size: 1.2em;
+	color: white;
+}
+
+button:hover {
+	background: rgba(0,0,0,1);
+}
+
+.buttonwrapper {
+	display: inline-block;
+	text-align: center;
+	position: absolute;
+	top: 73.5%;
+	left: 42.3%;
+}

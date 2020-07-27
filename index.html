@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Etch A Sketch</title>
+	<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+
+<div class="buttonwrapper">
+<button onclick="changeGridSize()">Change Grid Size</button>
+<button onclick="resetGrid()">Reset Grid</button>
+</div>
+
+<script>
+
+const container = document.createElement("div");
+container.classList.add("container");
+document.body.appendChild(container);
+
+populateGrid(16);
+
+function resetGrid() {
+	let items = document.querySelectorAll("div.hovered");
+	items.forEach(item => {
+		item.classList.remove("hovered");
+	})
+}
+
+function changeGridSize() {
+	let numString = prompt("New grid size (number of squares per side):", "16")
+	let num = parseInt(numString);
+
+	if (Number.isNaN(num)) {
+		alert("You didn't enter a number!");
+		return;
+	}
+
+	deleteSquares();
+	populateGrid(num);
+}
+
+function deleteSquares() {
+	while (container.firstChild) {
+		container.removeChild(container.lastChild);
+	}
+}
+
+function populateGrid(num) {
+	let gridNumOneSide = num;
+	let gridNum = gridNumOneSide ** 2; //The number on one side times itself to get the total number of grid items
+
+	container.style.setProperty('grid-template-columns', `repeat(${gridNumOneSide}, auto)`)
+
+	for (let i = 0; i < gridNum; i++) {
+		const item = document.createElement("div");
+		item.addEventListener("mouseover", e => {
+			e.target.classList.add("hovered");
+		})
+
+	container.appendChild(item);
+	}
+}
+
+</script>
+
+</body>
+</html>
